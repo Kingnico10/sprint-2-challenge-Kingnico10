@@ -87,7 +87,28 @@
 
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
-
+        let textArr = text.split(' ')
+        let newText = []
+        
+        if (forbidden.length === 0 ) {
+          return text
+        } else {
+          for (let i = 0; i < textArr.length; i++) {
+            for (let j = 0; j < forbidden.length; j++) {
+              if (textArr[i] === forbidden[j]) {
+                let str = textArr [i]
+                let newStr = ""
+                for (let i = 0; i < str.length; i++) {
+                  newStr += 'x'
+                }
+                textArr[i] = newStr
+              }
+            }
+            newText.push(textArr[i])
+          }
+        }
+        //console.log(newText)
+        return newText.join(' ')
     }
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
